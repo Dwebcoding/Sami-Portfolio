@@ -8,28 +8,28 @@ const musicCards = [
     title: 'Dio lodato',
     desc: 'Singolo emozionante tra sogno e realtà.',
     cover: '../assets/photos/cover/Dio_lodato.jpeg',
-    audio: 'audio/dio lodat provin.mp3',
+    audio: 'audio/dio_lodat_provin.mp3',
     type: 'singolo',
   },
   {
     title: 'Laggiù',
     desc: 'Album di sonorità profonde e testi intensi.',
     cover: '../assets/photos/cover/Laggiu.jpeg',
-    audio: 'audio/laggiu provin.mp3',
+    audio: 'audio/laggiu_provin.mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 1',
     desc: 'Singolo delicato e luminoso.',
     cover: '../assets/photos/cover/Crack_freesstyle.jpeg',
-    audio: 'audio/crack freestyle .mp3',
+    audio: 'audio/crack_freestyle.mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 2',
     desc: 'Album che illumina la scena musicale.',
     cover: '../assets/photos/cover/Cruda_freestyle_2.jpeg',
-    audio: 'audio/cruda freestyle 2.mp3',
+    audio: 'audio/cruda_freestyle_2.mp3',
     type: 'singolo',
   },
 ];
@@ -43,7 +43,7 @@ function createMusicCard(card, highlight = false) {
         <h3 class="card__title">${card.title}</h3>
         <p class="card__desc">${card.desc}</p>
         <audio controls preload="none">
-          <source src="${card.audio}" type="audio/mpeg">
+          <source src="/${card.audio}" type="audio/mpeg">
           Il tuo browser non supporta l'audio.
         </audio>
       </div>
@@ -52,20 +52,16 @@ function createMusicCard(card, highlight = false) {
 }
 
 // Render card in homepage (index.html)
+
+// Rileva pagina corrente
+const isIndex = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+const isProjects = window.location.pathname.endsWith('projects.html');
+
 const highlightsGrid = document.querySelector('.highlights__grid');
-if (highlightsGrid) {
+if ((isIndex || isProjects) && highlightsGrid) {
   highlightsGrid.innerHTML = musicCards.map(card => createMusicCard(card, true)).join('');
   enableAudioCardAnimation(highlightsGrid);
-}
-
-// Render card in projects.html
-const projectsGrid = document.querySelector('.projects-grid__container') || document.querySelector('.highlights__grid');
-if (projectsGrid) {
-  // Se siamo in projects.html, highlights__grid è la griglia
-  if (!highlightsGrid) {
-    projectsGrid.innerHTML = musicCards.map(card => createMusicCard(card)).join('');
-  }
-  enableAudioCardAnimation(projectsGrid);
+  enableTrackModal(highlightsGrid);
 }
 
 // Funzione: bordo animato su card in riproduzione audio
@@ -124,9 +120,7 @@ function enableTrackModal(container) {
   });
 }
 
-// Attiva modal su index e projects
-if (highlightsGrid) enableTrackModal(highlightsGrid);
-if (projectsGrid) enableTrackModal(projectsGrid);
+// Attiva modal su index e projects (già gestito nella nuova logica)
 
 // Animazione fade-in al caricamento
 window.addEventListener('DOMContentLoaded', () => {
