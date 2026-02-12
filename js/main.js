@@ -104,18 +104,30 @@ function enableTrackModal(container) {
   const modalBody = modal.querySelector('.track-modal__body');
   const closeBtn = modal.querySelector('.track-modal__close');
   // Apri modal su click card
+  // Percorsi compatibili con GitHub Pages e Live Server (replica logica createMusicCard)
+  const repo = 'Sami-Portfolio';
+  const isGithubPages = window.location.hostname.endsWith('github.io');
   container.querySelectorAll('.card').forEach((card, idx) => {
     card.style.cursor = 'pointer';
     card.addEventListener('click', e => {
       // Evita apertura se click su audio o controlli
       if (e.target.tagName.toLowerCase() === 'audio' || e.target.closest('audio')) return;
       const cardData = musicCards[idx];
+      let audioSrc = cardData.audio;
+      let coverSrc = cardData.cover;
+      if (isGithubPages) {
+        audioSrc = `/${repo}/${cardData.audio}`;
+        coverSrc = `/${repo}/${cardData.cover.replace(/^\.\./, '')}`;
+      } else if (window.location.pathname.includes('/html/')) {
+        audioSrc = '../' + cardData.audio;
+        coverSrc = cardData.cover;
+      }
       modalBody.innerHTML = `
-        <img src="${cardData.cover}" alt="Copertina ${cardData.title}" style="width:220px;max-width:90vw;border-radius:var(--radius);box-shadow:0 2px 8px var(--color-shadow);margin-bottom:1em;">
+        <img src="${coverSrc}" alt="Copertina ${cardData.title}" style="width:220px;max-width:90vw;border-radius:var(--radius);box-shadow:0 2px 8px var(--color-shadow);margin-bottom:1em;">
         <h2 style="margin:0 0 0.5em 0;font-size:1.5rem;">${cardData.title}</h2>
         <p style="margin:0 0 1em 0;">${cardData.desc}</p>
         <audio controls style="width:100%">
-          <source src="${cardData.audio}" type="audio/mpeg">
+          <source src="${audioSrc}" type="audio/mpeg">
           Il tuo browser non supporta l'audio.
         </audio>
       `;
