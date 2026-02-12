@@ -36,15 +36,21 @@ const musicCards = [
 
 // Funzione per generare card HTML
 function createMusicCard(card, highlight = false) {
-  // Percorso relativo per compatibilità GitHub Pages e Live Server
+  // Percorsi compatibili con GitHub Pages e Live Server
+  const repo = 'Sami-Portfolio';
+  const isGithubPages = window.location.hostname.endsWith('github.io');
   let audioSrc = card.audio;
-  // Se la pagina è in una sottocartella (es: html/projects.html), aggiungi '../' davanti
-  if (window.location.pathname.includes('/html/')) {
+  let coverSrc = card.cover;
+  if (isGithubPages) {
+    audioSrc = `/${repo}/${card.audio}`;
+    coverSrc = `/${repo}/${card.cover.replace(/^\.\./, '')}`;
+  } else if (window.location.pathname.includes('/html/')) {
     audioSrc = '../' + card.audio;
+    coverSrc = card.cover;
   }
   return `
     <article class="card${highlight ? ' card--highlight' : ''}" data-type="${card.type}">
-      <img src="${card.cover}" alt="Copertina ${card.title}" class="card__cover" width="320" height="320">
+      <img src="${coverSrc}" alt="Copertina ${card.title}" class="card__cover" width="320" height="320">
       <div class="card__body">
         <h3 class="card__title">${card.title}</h3>
         <p class="card__desc">${card.desc}</p>
