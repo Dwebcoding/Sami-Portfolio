@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Progetti musicali di Sami - cantante e artista">
+  <title>Progetti | Sami Portfolio</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="preload" href="../assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="../assets/images/logo.svg">
+</head>
+<body class="body body--dark">
+  <header class="header" aria-label="Main navigation">
+    <nav class="navbar navbar--sticky" aria-label="Primary">
+      <div class="navbar__logo">
+        <img src="../assets/images/logo.svg" alt="Logo Sami" width="40" height="40">
+        <span class="navbar__brand">Sami</span>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="../index.html" class="navbar__link">Home</a></li>
+        <li><a href="projects.html" class="navbar__link navbar__link--active" aria-current="page">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects-header" aria-label="Projects header">
+      <h1 class="projects-header__title">Progetti musicali</h1>
+      <div class="projects-header__filter">
+        <button class="filter__btn filter__btn--active" data-filter="all" aria-label="Mostra tutti">Tutti</button>
+        <button class="filter__btn" data-filter="singolo" aria-label="Mostra singoli">Singoli</button>
+        <button class="filter__btn" data-filter="album" aria-label="Mostra album">Album</button>
+      </div>
+    </section>
+
+    <section class="projects-grid" aria-label="Projects grid">
+      <div class="projects-grid__container">
+        <!-- Card layout, solo audio (singolo e album) -->
+        <article class="card" data-type="singolo">
+          <img src="../assets/images/project1.jpg" alt="Copertina Dio lodato" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h2 class="card__title">Dio lodato</h2>
+            <p class="card__desc">Singolo emozionante tra sogno e realtà.</p>
+            <a href="#" class="btn btn--listen" aria-label="Ascolta Dio lodato">Ascolta</a>
+          </div>
+        </article>
+        <article class="card" data-type="singolo">
+          <img src="../assets/images/project2.jpg" alt="Copertina Laggiù" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h2 class="card__title">Laggiù</h2>
+            <p class="card__desc">Album di sonorità profonde e testi intensi.</p>
+            <a href="#" class="btn btn--listen" aria-label="Ascolta Laggiù">Ascolta</a>
+          </div>
+        </article>
+        <article class="card" data-type="singolo">
+          <img src="../assets/images/project4.jpg" alt="Copertina Cruda freestyle 1" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h2 class="card__title">Cruda freestyle 1</h2>
+            <p class="card__desc">Singolo delicato e luminoso.</p>
+            <a href="#" class="btn btn--listen" aria-label="Ascolta Cruda freestyle 1">Ascolta</a>
+          </div>
+        </article>
+        <article class="card" data-type="singolo">
+          <img src="../assets/images/project5.jpg" alt="Copertina Cruda freestyle 2" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h2 class="card__title">Cruda freestyle 2</h2>
+            <p class="card__desc">Album che illumina la scena musicale.</p>
+            <a href="#" class="btn btn--listen" aria-label="Ascolta Cruda freestyle 2">Ascolta</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer">
+    <div class="footer__container">
+      <div class="footer__social">
+        <a href="#" class="footer__icon" aria-label="Instagram"><img src="../assets/images/instagram.svg" alt="Instagram" width="24" height="24"></a>
+        <a href="#" class="footer__icon" aria-label="YouTube"><img src="../assets/images/youtube.svg" alt="YouTube" width="24" height="24"></a>
+        <a href="#" class="footer__icon" aria-label="Spotify"><img src="../assets/images/spotify.svg" alt="Spotify" width="24" height="24"></a>
+      </div>
+      <div class="footer__copyright">
+        <span>&copy; 2026 Sami. Tutti i diritti riservati.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
