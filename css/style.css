@@ -137,7 +137,9 @@
   --font-main: 'Inter', Arial, Helvetica, sans-serif;
   --font-size-base: 1rem;
   --font-size-lg: 2.2rem;
+  --font-size-hero: 4rem;
   --font-size-md: 1.3rem;
+  --font-size-tagline: 1.7rem;
   --font-size-sm: 0.95rem;
   --space-lg: 3rem;
   --space-md: 1.5rem;
@@ -299,7 +301,7 @@ body.body--dark {
 }
 
 .hero__title {
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-hero);
   font-weight: 800;
   margin-bottom: var(--space-sm);
   letter-spacing: 0.08em;
@@ -307,11 +309,23 @@ body.body--dark {
 }
 
 .hero__tagline {
-  font-size: var(--font-size-md);
-  font-weight: 400;
+  font-size: var(--font-size-tagline);
+  font-weight: 500;
   margin-bottom: var(--space-md);
-  color: var(--color-accent);
+  background: linear-gradient(90deg, #00ffd0 0%, #00bfff 50%, #ff00cc 100%);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  animation: gradient-move 3s linear infinite;
   z-index: 2;
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
 }
 
 .btn {
