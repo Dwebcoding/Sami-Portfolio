@@ -1,3 +1,8 @@
+/* Font ricercato per H2 */
+h2, .about__title, .highlights__title, .projects-header__title {
+  font-family: 'Playfair Display', serif !important;
+  letter-spacing: 0.01em;
+}
 /* Ottimizzazioni mobile e tablet */
 @media (max-width: 900px) {
   .side-navbar {
