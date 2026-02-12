@@ -22,7 +22,7 @@ const musicCards = [
     title: 'Cruda freestyle 1',
     desc: 'Singolo delicato e luminoso.',
     cover: '../assets/photos/cover/Crack_freesstyle.jpeg',
-    audio: 'audio/crack_freestyle.mp3',
+    audio: 'audio/crack_freesstyle.mp3',
     type: 'singolo',
   },
   {
