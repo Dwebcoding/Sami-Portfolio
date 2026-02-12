@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Spotify">
   <rect width="24" height="24" rx="6" fill="#e0e0e0"/>
   <ellipse cx="12" cy="12" rx="6" ry="3" fill="#00ffd0"/>
   <ellipse cx="12" cy="16" rx="4" ry="1.5" fill="#181a1b"/>
+=======
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Spotify">
+  <rect width="24" height="24" rx="6" fill="#e0e0e0"/>
+  <ellipse cx="12" cy="12" rx="6" ry="3" fill="#00ffd0"/>
+  <ellipse cx="12" cy="16" rx="4" ry="1.5" fill="#181a1b"/>
+>>>>>>> 2f4e70a669ae8a241c2802a0e8c52cedff10dfd3
 </svg>

@@ -7,29 +7,29 @@ const musicCards = [
   {
     title: 'Dio lodato',
     desc: 'Singolo emozionante tra sogno e realtà.',
-    cover: 'assets/images/project1.jpg',
-    audio: 'audio/dio lodat provin.mp3.mpeg',
+    cover: 'assets/photos/cover/dio-lodato.jpeg',
+    audio: 'audio/dio-lodato.mp3',
     type: 'singolo',
   },
   {
     title: 'Laggiù',
     desc: 'Album di sonorità profonde e testi intensi.',
-    cover: 'assets/images/project2.jpg',
-    audio: 'audio/laggiu provin.mp3.mpeg',
+    cover: 'assets/photos/cover/laggiu.jpeg',
+    audio: 'audio/laggiu.mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 1',
     desc: 'Singolo delicato e luminoso.',
-    cover: 'assets/images/project4.jpg',
-    audio: 'audio/crack freestyle .mp3.mpeg',
+    cover: 'assets/photos/cover/crack-freestyle.jpeg',
+    audio: 'audio/crack-freestyle.mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 2',
     desc: 'Album che illumina la scena musicale.',
-    cover: 'assets/images/project5.jpg',
-    audio: 'audio/cruda freestyle 2.mp3.mpeg',
+    cover: 'assets/photos/cover/cruda-freestyle-2.jpeg',
+    audio: 'audio/cruda-freestyle-2.mp3',
     type: 'singolo',
   },
 ];
@@ -104,3 +104,4 @@ filterBtns.forEach(btn => {
 
 // Animazione fade-in (aggiunta classe)
 // CSS gestisce l'animazione tramite la classe fade-in
+
