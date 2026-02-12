@@ -10,20 +10,31 @@
   <link rel="icon" href="../assets/images/logo.svg">
 </head>
 <body class="body body--dark">
-  <header class="header" aria-label="Main navigation">
-    <nav class="navbar navbar--sticky" aria-label="Primary">
-      <div class="navbar__logo">
-        <img src="../assets/images/logo.svg" alt="Logo Sami" width="40" height="40">
-        <span class="navbar__brand">Sami</span>
-      </div>
-      <ul class="navbar__links">
-        <li><a href="../index.html" class="navbar__link">Home</a></li>
-        <li><a href="projects.html" class="navbar__link navbar__link--active" aria-current="page">Projects</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Navbar verticale destra -->
+  <nav class="side-navbar" aria-label="Main navigation">
+    <ul class="side-navbar__list">
+      <li>
+        <a href="../index.html" class="side-navbar__icon" aria-label="Home">
+          <img src="../assets/images/home.svg" alt="Home" width="32" height="32">
+        </a>
+      </li>
+      <li>
+        <a href="projects.html" class="side-navbar__icon" aria-label="Projects">
+          <img src="../assets/images/projects.svg" alt="Projects" width="32" height="32">
+        </a>
+      </li>
+    </ul>
+  </nav>
 
   <main>
+        <!-- Modal Dettaglio Brano -->
+        <div id="track-modal" class="track-modal" aria-modal="true" role="dialog" tabindex="-1" style="display:none">
+          <div class="track-modal__overlay"></div>
+          <div class="track-modal__content" role="document">
+            <button class="track-modal__close" aria-label="Chiudi">&times;</button>
+            <div class="track-modal__body"></div>
+          </div>
+        </div>
     <section class="projects-header" aria-label="Projects header">
       <h1 class="projects-header__title">Progetti musicali</h1>
       <div class="projects-header__filter">
@@ -36,7 +47,7 @@
     <section class="projects-grid" aria-label="Projects grid">
       <div class="highlights__grid">
         <article class="card card--highlight" data-type="singolo">
-          <img src="../assets/images/project1.jpg" alt="Copertina Dio lodato" class="card__cover" width="320" height="320">
+          <img src="../assets/photos/cover/Dio_lodato.jpeg" alt="Copertina Dio lodato" class="card__cover" width="320" height="320">
           <div class="card__body">
             <h3 class="card__title">Dio lodato</h3>
             <p class="card__desc">Singolo emozionante tra sogno e realtà.</p>
@@ -47,7 +58,7 @@
           </div>
         </article>
         <article class="card card--highlight" data-type="singolo">
-          <img src="../assets/images/project2.jpg" alt="Copertina Laggiù" class="card__cover" width="320" height="320">
+          <img src="../assets/photos/cover/Laggiu.jpeg" alt="Copertina Laggiù" class="card__cover" width="320" height="320">
           <div class="card__body">
             <h3 class="card__title">Laggiù</h3>
             <p class="card__desc">Album di sonorità profonde e testi intensi.</p>
@@ -58,9 +69,9 @@
           </div>
         </article>
         <article class="card card--highlight" data-type="singolo">
-          <img src="../assets/images/project4.jpg" alt="Copertina Cruda freestyle 1" class="card__cover" width="320" height="320">
+          <img src="../assets/photos/cover/Crack_freesstyle.jpeg" alt="Copertina Crack freesstyle" class="card__cover" width="320" height="320">
           <div class="card__body">
-            <h3 class="card__title">Cruda freestyle 1</h3>
+            <h3 class="card__title">Crack freesstyle</h3>
             <p class="card__desc">Singolo delicato e luminoso.</p>
             <audio controls preload="none">
               <source src="../audio/crack freestyle .mp3" type="audio/mpeg">
@@ -69,7 +80,7 @@
           </div>
         </article>
         <article class="card card--highlight" data-type="singolo">
-          <img src="../assets/images/project5.jpg" alt="Copertina Cruda freestyle 2" class="card__cover" width="320" height="320">
+          <img src="../assets/photos/cover/Cruda_freestyle_2.jpeg" alt="Copertina Cruda freestyle 2" class="card__cover" width="320" height="320">
           <div class="card__body">
             <h3 class="card__title">Cruda freestyle 2</h3>
             <p class="card__desc">Album che illumina la scena musicale.</p>

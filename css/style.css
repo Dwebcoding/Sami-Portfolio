@@ -1,3 +1,121 @@
+/* Modal dettaglio brano */
+.track-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.track-modal__overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(24,26,27,0.85);
+  backdrop-filter: blur(2px);
+  z-index: 0;
+}
+.track-modal__content {
+  position: relative;
+  background: var(--color-card);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px var(--color-shadow);
+  padding: 2.5em 2em 2em 2em;
+  min-width: 320px;
+  max-width: 95vw;
+  max-height: 90vh;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modal-fade-in 0.25s cubic-bezier(.4,0,.2,1);
+}
+.track-modal__close {
+  position: absolute;
+  top: 0.7em;
+  right: 1em;
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 2.2rem;
+  cursor: pointer;
+  z-index: 2;
+  transition: color 0.2s;
+}
+.track-modal__close:hover {
+  color: var(--color-accent);
+}
+.track-modal__body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2em;
+}
+@keyframes modal-fade-in {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+/* Bordo animato luminoso su card in riproduzione audio */
+.card--playing {
+  box-shadow: 0 0 0 4px var(--color-accent), 0 8px 24px var(--color-shadow);
+  animation: playing-glow 1.2s infinite alternate;
+  z-index: 2;
+}
+
+@keyframes playing-glow {
+  0% {
+    box-shadow: 0 0 0 4px var(--color-accent), 0 8px 24px var(--color-shadow);
+  }
+  100% {
+    box-shadow: 0 0 16px 8px var(--color-accent), 0 8px 32px var(--color-shadow);
+  }
+}
+/* Navbar verticale destra */
+.side-navbar {
+  position: fixed;
+  top: 50%;
+  right: 2.5vw;
+  transform: translateY(-50%);
+  background: rgba(24, 26, 27, 0.45);
+  border-radius: 32px;
+  box-shadow: 0 2px 16px var(--color-shadow);
+  padding: 1.2em 0.7em;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  backdrop-filter: blur(6px);
+}
+
+.side-navbar__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+}
+
+.side-navbar__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.side-navbar__icon:hover,
+.side-navbar__icon:focus {
+  background: rgba(0,0,0,0.18);
+  outline: none;
+}
+.side-navbar__icon img {
+  width: 32px;
+  height: 32px;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+}
 /*
   Sami Portfolio - Modern Minimal Dark Theme
   Author: Sami
@@ -97,9 +215,11 @@ body.body--dark {
   align-items: stretch;
   justify-content: center;
   min-height: 60vh;
-  background: var(--color-bg-alt);
+  background: var(--color-bg-alt) url('../assets/Hero.jpeg') no-repeat center center;
+  background-size: cover;
   box-shadow: 0 4px 16px var(--color-shadow);
   width: 100%;
+  position: relative;
 }
 
 .hero__container {
@@ -114,16 +234,7 @@ body.body--dark {
 }
 
 .hero__image {
-  flex: 1 1 340px;
-  display: flex;
-  align-items: stretch;
-  justify-content: flex-end;
-  background: var(--color-bg-alt);
-  border-radius: var(--radius) 0 0 var(--radius);
-  overflow: hidden;
-  min-width: 220px;
-  max-width: 420px;
-  height: 100%;
+  display: none;
 }
 
 .hero__photo {
@@ -166,7 +277,7 @@ body.body--dark {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(90deg, var(--color-bg-alt) 0%, var(--color-bg-alt) 50%, var(--color-accent) 100%);
+  background: transparent;
   border-radius: 0 var(--radius) var(--radius) 0;
   min-width: 0;
   height: 100%;

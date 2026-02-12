@@ -7,28 +7,28 @@ const musicCards = [
   {
     title: 'Dio lodato',
     desc: 'Singolo emozionante tra sogno e realtà.',
-    cover: 'assets/photos/cover/Dio lodato.jpeg',
+    cover: '../assets/photos/cover/Dio_lodato.jpeg',
     audio: 'audio/dio lodat provin.mp3',
     type: 'singolo',
   },
   {
     title: 'Laggiù',
     desc: 'Album di sonorità profonde e testi intensi.',
-    cover: 'assets/photos/cover/Laggiù.jpeg',
+    cover: '../assets/photos/cover/Laggiu.jpeg',
     audio: 'audio/laggiu provin.mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 1',
     desc: 'Singolo delicato e luminoso.',
-    cover: 'assets/photos/cover/Crack freesstyle.jpeg',
+    cover: '../assets/photos/cover/Crack_freesstyle.jpeg',
     audio: 'audio/crack freestyle .mp3',
     type: 'singolo',
   },
   {
     title: 'Cruda freestyle 2',
     desc: 'Album che illumina la scena musicale.',
-    cover: 'assets/photos/cover/Cruda freestyle 2.jpeg',
+    cover: '../assets/photos/cover/Cruda_freestyle_2.jpeg',
     audio: 'audio/cruda freestyle 2.mp3',
     type: 'singolo',
   },
@@ -55,13 +55,78 @@ function createMusicCard(card, highlight = false) {
 const highlightsGrid = document.querySelector('.highlights__grid');
 if (highlightsGrid) {
   highlightsGrid.innerHTML = musicCards.map(card => createMusicCard(card, true)).join('');
+  enableAudioCardAnimation(highlightsGrid);
 }
 
 // Render card in projects.html
-const projectsGrid = document.querySelector('.projects-grid__container');
+const projectsGrid = document.querySelector('.projects-grid__container') || document.querySelector('.highlights__grid');
 if (projectsGrid) {
-  projectsGrid.innerHTML = musicCards.map(card => createMusicCard(card)).join('');
+  // Se siamo in projects.html, highlights__grid è la griglia
+  if (!highlightsGrid) {
+    projectsGrid.innerHTML = musicCards.map(card => createMusicCard(card)).join('');
+  }
+  enableAudioCardAnimation(projectsGrid);
 }
+
+// Funzione: bordo animato su card in riproduzione audio
+function enableAudioCardAnimation(container) {
+  const allAudio = container.querySelectorAll('audio');
+  allAudio.forEach(audio => {
+    audio.addEventListener('play', () => {
+      // Metti in pausa tutti gli altri audio
+      allAudio.forEach(other => {
+        if (other !== audio) other.pause();
+      });
+      container.querySelectorAll('.card').forEach(card => card.classList.remove('card--playing'));
+      audio.closest('.card').classList.add('card--playing');
+    });
+    audio.addEventListener('pause', () => {
+      audio.closest('.card').classList.remove('card--playing');
+    });
+    audio.addEventListener('ended', () => {
+      audio.closest('.card').classList.remove('card--playing');
+    });
+  });
+}
+
+// Modal dettaglio brano (index.html e projects.html)
+function enableTrackModal(container) {
+  const modal = document.getElementById('track-modal');
+  if (!modal) return;
+  const modalBody = modal.querySelector('.track-modal__body');
+  const closeBtn = modal.querySelector('.track-modal__close');
+  // Apri modal su click card
+  container.querySelectorAll('.card').forEach((card, idx) => {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', e => {
+      // Evita apertura se click su audio o controlli
+      if (e.target.tagName.toLowerCase() === 'audio' || e.target.closest('audio')) return;
+      const cardData = musicCards[idx];
+      modalBody.innerHTML = `
+        <img src="${cardData.cover}" alt="Copertina ${cardData.title}" style="width:220px;max-width:90vw;border-radius:var(--radius);box-shadow:0 2px 8px var(--color-shadow);margin-bottom:1em;">
+        <h2 style="margin:0 0 0.5em 0;font-size:1.5rem;">${cardData.title}</h2>
+        <p style="margin:0 0 1em 0;">${cardData.desc}</p>
+        <audio controls style="width:100%">
+          <source src="${cardData.audio}" type="audio/mpeg">
+          Il tuo browser non supporta l'audio.
+        </audio>
+      `;
+      modal.style.display = 'flex';
+      setTimeout(() => { modal.focus(); }, 10);
+    });
+  });
+  // Chiudi modal
+  function closeModal() { modal.style.display = 'none'; }
+  closeBtn.addEventListener('click', closeModal);
+  modal.querySelector('.track-modal__overlay').addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (modal.style.display === 'flex' && (e.key === 'Escape' || e.key === 'Esc')) closeModal();
+  });
+}
+
+// Attiva modal su index e projects
+if (highlightsGrid) enableTrackModal(highlightsGrid);
+if (projectsGrid) enableTrackModal(projectsGrid);
 
 // Animazione fade-in al caricamento
 window.addEventListener('DOMContentLoaded', () => {
