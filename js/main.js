@@ -36,6 +36,12 @@ const musicCards = [
 
 // Funzione per generare card HTML
 function createMusicCard(card, highlight = false) {
+  // Percorso relativo per compatibilità GitHub Pages e Live Server
+  let audioSrc = card.audio;
+  // Se la pagina è in una sottocartella (es: html/projects.html), aggiungi '../' davanti
+  if (window.location.pathname.includes('/html/')) {
+    audioSrc = '../' + card.audio;
+  }
   return `
     <article class="card${highlight ? ' card--highlight' : ''}" data-type="${card.type}">
       <img src="${card.cover}" alt="Copertina ${card.title}" class="card__cover" width="320" height="320">
@@ -43,7 +49,7 @@ function createMusicCard(card, highlight = false) {
         <h3 class="card__title">${card.title}</h3>
         <p class="card__desc">${card.desc}</p>
         <audio controls preload="none">
-          <source src="/${card.audio}" type="audio/mpeg">
+          <source src="${audioSrc}" type="audio/mpeg">
           Il tuo browser non supporta l'audio.
         </audio>
       </div>
