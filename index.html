@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio musicale di Sami - cantante e artista">
+  <title>Sami Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" href="assets/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="assets/images/logo.svg">
+</head>
+<body class="body body--dark">
+  <header class="header" aria-label="Main navigation">
+    <nav class="navbar navbar--sticky" aria-label="Primary">
+      <div class="navbar__logo">
+        <img src="assets/images/logo.svg" alt="Logo Sami" width="40" height="40">
+        <span class="navbar__brand">Sami</span>
+      </div>
+      <ul class="navbar__links">
+        <li><a href="index.html" class="navbar__link navbar__link--active" aria-current="page">Home</a></li>
+        <li><a href="html/projects.html" class="navbar__link">Projects</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-label="Hero">
+      <div class="hero__container">
+        <div class="hero__image">
+          <div class="hero__photo-blend">
+            <img src="assets/photos/sami.jpeg" alt="Foto Sami" class="hero__photo" width="340" height="420" loading="lazy">
+          </div>
+        </div>
+        <div class="hero__gradient">
+          <div class="hero__content">
+            <h1 class="hero__title">Sami</h1>
+            <p class="hero__tagline">Giovane e pazzo, faccio tremare il tuo palazzo.</p>
+            <a href="html/projects.html" class="btn btn--cta">Scopri i progetti</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" aria-label="About">
+      <div class="about__container">
+        <h2 class="about__title">Chi sono</h2>
+        <p class="about__text">Cantante e artista, Sami porta la sua voce e la sua passione in ogni performance. Minimalismo, eleganza e autenticità sono la sua firma.</p>
+      </div>
+    </section>
+
+    <section class="highlights" aria-label="Recent works">
+      <div class="highlights__header">
+        <h2 class="highlights__title">Ultimi lavori</h2>
+      </div>
+      <div class="highlights__grid">
+        <article class="card card--highlight" data-type="singolo">
+          <img src="assets/images/project1.jpg" alt="Copertina Dio lodato" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h3 class="card__title">Dio lodato</h3>
+            <p class="card__desc">Singolo emozionante tra sogno e realtà.</p>
+            <audio controls preload="none">
+              <source src="audio/dio lodat provin.mp3.mpeg" type="audio/mpeg">
+              Il tuo browser non supporta l'audio.
+            </audio>
+          </div>
+        </article>
+        <article class="card card--highlight" data-type="singolo">
+          <img src="assets/images/project2.jpg" alt="Copertina Laggiù" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h3 class="card__title">Laggiù</h3>
+            <p class="card__desc">Album di sonorità profonde e testi intensi.</p>
+            <audio controls preload="none">
+              <source src="audio/laggiu provin.mp3.mpeg" type="audio/mpeg">
+              Il tuo browser non supporta l'audio.
+            </audio>
+          </div>
+        </article>
+        <article class="card card--highlight" data-type="singolo">
+          <img src="assets/images/project4.jpg" alt="Copertina Cruda freestyle 1" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h3 class="card__title">Cruda freestyle 1</h3>
+            <p class="card__desc">Singolo delicato e luminoso.</p>
+            <audio controls preload="none">
+              <source src="audio/crack freestyle .mp3.mpeg" type="audio/mpeg">
+              Il tuo browser non supporta l'audio.
+            </audio>
+          </div>
+        </article>
+        <article class="card card--highlight" data-type="singolo">
+          <img src="assets/images/project5.jpg" alt="Copertina Cruda freestyle 2" class="card__cover" width="320" height="320">
+          <div class="card__body">
+            <h3 class="card__title">Cruda freestyle 2</h3>
+            <p class="card__desc">Album che illumina la scena musicale.</p>
+            <audio controls preload="none">
+              <source src="audio/cruda freestyle 2.mp3.mpeg" type="audio/mpeg">
+              Il tuo browser non supporta l'audio.
+            </audio>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" aria-label="Footer">
+    <div class="footer__container">
+      <div class="footer__social">
+        <a href="#" class="footer__icon" aria-label="Instagram"><img src="assets/images/instagram.svg" alt="Instagram" width="24" height="24"></a>
+        <a href="#" class="footer__icon" aria-label="YouTube"><img src="assets/images/youtube.svg" alt="YouTube" width="24" height="24"></a>
+        <a href="#" class="footer__icon" aria-label="Spotify"><img src="assets/images/spotify.svg" alt="Spotify" width="24" height="24"></a>
+      </div>
+      <div class="footer__copyright">
+        <span>&copy; 2026 Sami. Tutti i diritti riservati.</span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
