@@ -1,3 +1,48 @@
+/* Ottimizzazioni mobile e tablet */
+@media (max-width: 900px) {
+  .side-navbar {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__title {
+    font-size: 2.2rem;
+  }
+  .hero__tagline {
+    font-size: 1.1rem;
+  }
+  .btn, .btn--cta {
+    font-size: 1rem;
+    padding: 0.6em 1.2em;
+  }
+  .about {
+    margin: var(--space-sm) auto;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px var(--color-shadow);
+  }
+  .highlights {
+    padding: var(--space-sm);
+  }
+  .highlights__grid {
+    gap: var(--space-sm);
+  }
+  .card {
+    min-width: 0;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 4px var(--color-shadow);
+  }
+  .footer {
+    padding: var(--space-sm) 0;
+    font-size: 0.85rem;
+  }
+  .footer__container {
+    gap: 0.2em;
+  }
+  .footer__social {
+    gap: 0.7em;
+  }
+}
 /* Modal dettaglio brano */
 .track-modal {
   position: fixed;
